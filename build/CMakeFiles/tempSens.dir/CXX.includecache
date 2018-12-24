@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/flo/projects/tempSens/source/tempSens.cpp
+wiringPi.h
+-
+tempSens.h
+/home/flo/projects/tempSens/source/tempSens.h
+
+/home/flo/projects/tempSens/source/tempSens.h
+

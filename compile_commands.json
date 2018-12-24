@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/flo/projects/tempSens/build",
+  "command": "/usr/bin/c++    -I/home/flo/projects/tempSens/source    -o CMakeFiles/tempSens.dir/source/tempSens.cpp.o -c /home/flo/projects/tempSens/source/tempSens.cpp",
+  "file": "/home/flo/projects/tempSens/source/tempSens.cpp"
+}
+]
