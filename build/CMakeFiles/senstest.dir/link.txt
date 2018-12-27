@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++1y -Wall   CMakeFiles/senstest.dir/source/senstest.cpp.o  -o ../bin/senstest -rdynamic 

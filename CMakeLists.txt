@@ -16,3 +16,6 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall")
 # The following folder will be included
 include_directories("${PROJECT_SOURCE_DIR}/source")
 include_directories("/usr/include")
+link_directories("${PROJECT_SOURCE_DIR}/source")
+link_directories("/usr/include/wiringPi")
+add_executable(tempSens ${PROJECT_SOURCE_DIR}/source/senstest.cpp ${PROJECT_SOURCE_DIR}/source/tempSens.cpp)

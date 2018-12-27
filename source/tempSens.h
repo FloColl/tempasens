@@ -6,19 +6,26 @@
 class tempSens{
 public:
     tempSens();
-    float getTemp();
-    float getHum();
     void setClock(int mili);
-    int getUpdatetime();
+    int testemp();
+    void  callSens();
 
 private:
-    void initSens();
-    void readSens();
-    void  callSens();
+    enum state{swake, swait, sresponse, sprepare, spre, ssignal, stest, sfin};
+    struct cstateconf {
+        state cstate;
+        uint8_t values[5];
+        uint8_t bcounter;
+        int test;
+        bool validSig;
+        std::chrono::milliseconds stamp;
+    };
+    
+    int getUpdatetime();
     void setStamp(std::chrono::milliseconds& ms);
+    bool  transState(cstateconf& state);
 
-    int digits[5];
+    cstateconf mstate;
     static int sensClock;
-    std::chrono::milliseconds stamp;
 };
 #endif

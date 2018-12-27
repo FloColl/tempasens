@@ -4,8 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/flo/projects/tempSens/source/senstest.cpp" "/home/flo/projects/tempSens/build/CMakeFiles/tempSens.dir/source/senstest.cpp.o"
-  "/home/flo/projects/tempSens/source/tempSens.cpp" "/home/flo/projects/tempSens/build/CMakeFiles/tempSens.dir/source/tempSens.cpp.o"
+  "/home/flo/projects/tempSens/source/senstest.cpp" "/home/flo/projects/tempSens/build/CMakeFiles/senstest.dir/source/senstest.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

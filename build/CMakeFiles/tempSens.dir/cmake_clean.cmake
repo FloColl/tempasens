@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/tempSens.dir/source/senstest.cpp.o"
   "CMakeFiles/tempSens.dir/source/tempSens.cpp.o"
   "../bin/tempSens.pdb"
   "../bin/tempSens"

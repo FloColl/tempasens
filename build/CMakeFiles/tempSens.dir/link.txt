@@ -1,1 +1,1 @@
-/usr/bin/c++      CMakeFiles/tempSens.dir/source/tempSens.cpp.o  -o ../bin/tempSens -rdynamic 
+/usr/bin/c++    -std=c++1y -Wall   CMakeFiles/tempSens.dir/source/senstest.cpp.o CMakeFiles/tempSens.dir/source/tempSens.cpp.o  -o ../bin/tempSens  -L/home/flo/projects/tempSens/source  -L/usr/include/wiringPi -rdynamic 

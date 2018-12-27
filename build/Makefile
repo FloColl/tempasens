@@ -110,6 +110,73 @@ depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named tempSens
+
+# Build rule for target.
+tempSens: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tempSens
+.PHONY : tempSens
+
+# fast build rule for target.
+tempSens/fast:
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/build
+.PHONY : tempSens/fast
+
+source/senstest.o: source/senstest.cpp.o
+
+.PHONY : source/senstest.o
+
+# target to build an object file
+source/senstest.cpp.o:
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/source/senstest.cpp.o
+.PHONY : source/senstest.cpp.o
+
+source/senstest.i: source/senstest.cpp.i
+
+.PHONY : source/senstest.i
+
+# target to preprocess a source file
+source/senstest.cpp.i:
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/source/senstest.cpp.i
+.PHONY : source/senstest.cpp.i
+
+source/senstest.s: source/senstest.cpp.s
+
+.PHONY : source/senstest.s
+
+# target to generate assembly for a file
+source/senstest.cpp.s:
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/source/senstest.cpp.s
+.PHONY : source/senstest.cpp.s
+
+source/tempSens.o: source/tempSens.cpp.o
+
+.PHONY : source/tempSens.o
+
+# target to build an object file
+source/tempSens.cpp.o:
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/source/tempSens.cpp.o
+.PHONY : source/tempSens.cpp.o
+
+source/tempSens.i: source/tempSens.cpp.i
+
+.PHONY : source/tempSens.i
+
+# target to preprocess a source file
+source/tempSens.cpp.i:
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/source/tempSens.cpp.i
+.PHONY : source/tempSens.cpp.i
+
+source/tempSens.s: source/tempSens.cpp.s
+
+.PHONY : source/tempSens.s
+
+# target to generate assembly for a file
+source/tempSens.cpp.s:
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/source/tempSens.cpp.s
+.PHONY : source/tempSens.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -118,6 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... tempSens"
+	@echo "... source/senstest.o"
+	@echo "... source/senstest.i"
+	@echo "... source/senstest.s"
+	@echo "... source/tempSens.o"
+	@echo "... source/tempSens.i"
+	@echo "... source/tempSens.s"
 .PHONY : help
 
 

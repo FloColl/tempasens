@@ -12,12 +12,6 @@ tempSens.h
 stdio.h
 -
 
-/home/flo/projects/tempSens/source/tempSens.cpp
-tempSens.h
-/home/flo/projects/tempSens/source/tempSens.h
-stdint.h
--
-
 /home/flo/projects/tempSens/source/tempSens.h
 wiringPi.h
 -

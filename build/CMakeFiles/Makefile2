@@ -60,6 +60,43 @@ CMAKE_SOURCE_DIR = /home/flo/projects/tempSens
 CMAKE_BINARY_DIR = /home/flo/projects/tempSens/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/tempSens.dir
+
+# All Build rule for target.
+CMakeFiles/tempSens.dir/all:
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/depend
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/flo/projects/tempSens/build/CMakeFiles --progress-num=1,2,3 "Built target tempSens"
+.PHONY : CMakeFiles/tempSens.dir/all
+
+# Include target in all.
+all: CMakeFiles/tempSens.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tempSens.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/flo/projects/tempSens/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tempSens.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/flo/projects/tempSens/build/CMakeFiles 0
+.PHONY : CMakeFiles/tempSens.dir/rule
+
+# Convenience name for target.
+tempSens: CMakeFiles/tempSens.dir/rule
+
+.PHONY : tempSens
+
+# clean rule for target.
+CMakeFiles/tempSens.dir/clean:
+	$(MAKE) -f CMakeFiles/tempSens.dir/build.make CMakeFiles/tempSens.dir/clean
+.PHONY : CMakeFiles/tempSens.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/tempSens.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.
