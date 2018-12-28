@@ -1,7 +1,12 @@
 [
 {
   "directory": "/home/flo/projects/tempSens/build",
-  "command": "/usr/bin/c++    -I/home/flo/projects/tempSens/source    -o CMakeFiles/tempSens.dir/source/tempSens.cpp.o -c /home/flo/projects/tempSens/source/tempSens.cpp",
+  "command": "/usr/bin/c++    -I/home/flo/projects/tempSens/source   -std=c++1y -Wall -lwiringPi   -std=gnu++11 -o CMakeFiles/tempSens.dir/source/senstest.cpp.o -c /home/flo/projects/tempSens/source/senstest.cpp",
+  "file": "/home/flo/projects/tempSens/source/senstest.cpp"
+},
+{
+  "directory": "/home/flo/projects/tempSens/build",
+  "command": "/usr/bin/c++    -I/home/flo/projects/tempSens/source   -std=c++1y -Wall -lwiringPi   -std=gnu++11 -o CMakeFiles/tempSens.dir/source/tempSens.cpp.o -c /home/flo/projects/tempSens/source/tempSens.cpp",
   "file": "/home/flo/projects/tempSens/source/tempSens.cpp"
 }
 ]

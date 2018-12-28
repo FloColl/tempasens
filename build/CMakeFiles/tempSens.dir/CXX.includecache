@@ -11,6 +11,8 @@ tempSens.h
 /home/flo/projects/tempSens/source/tempSens.h
 stdio.h
 -
+iostream
+-
 
 /home/flo/projects/tempSens/source/tempSens.cpp
 tempSens.h

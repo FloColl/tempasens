@@ -1,11 +1,12 @@
 #include "tempSens.h"
 #include <stdint.h>
-#define PIN_DATA 3
+#define PIN_DATA 7
 
 tempSens::tempSens(){
     wiringPiSetup();
     setStamp(mstate.stamp);
 };
+   int tempSens:: sensClock = 40;
 
 int tempSens::testemp()
 {
@@ -46,6 +47,7 @@ bool tempSens::transState(cstateconf& cstate)
             mstate.cstate = sresponse;
         case sresponse:
             pinMode(PIN_DATA, INPUT);
+            tcounter = 0;
             while(!digitalRead(PIN_DATA))
             {
                 tcounter++;
