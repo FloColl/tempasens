@@ -1,12 +1,12 @@
 #include "tempSens.h"
 #include <stdint.h>
+#include <iostream>
 #define PIN_DATA 7
+int tempSens:: sensClock = 40;
 
 tempSens::tempSens(){
     wiringPiSetup();
-    setStamp(mstate.stamp);
 };
-   int tempSens:: sensClock = 40;
 
 int tempSens::testemp()
 {
@@ -17,35 +17,28 @@ void tempSens::setClock(int x)
 {
     tempSens::sensClock = x;
 };
-
-void tempSens::setStamp(std::chrono::milliseconds& stamp){
-    stamp = std::chrono::duration_cast< std::chrono::milliseconds >(std::chrono::system_clock::now().time_since_epoch());    
-}
-
+/*
+void tempSens::setStamp(cstateconf& cstate){
+    cstate.stamp = std::chrono::high_resolution_clock::now();    
+};
+*/
 bool tempSens::transState(cstateconf& cstate)
 {
     int tcounter=0;
-
     switch(mstate.cstate)
     {
-
         case swake:
             cstate.validSig= false;
-            pinMode(PIN_DATA, OUTPUT);
-            digitalWrite(PIN_DATA, LOW);
-            delay(18);
-            mstate.bcounter = 0;
             mstate.test = 0;
+            mstate.bcounter = 0;
+            pinMode(PIN_DATA, OUTPUT);
             for(int i = 0; i<5; i++){
                 mstate.values[i] = 0;
             }
-            mstate.cstate =swait;
-            return true;
-        case swait:
+            digitalWrite(PIN_DATA, LOW);
+            delay(18);
             digitalWrite(PIN_DATA, HIGH);
             delayMicroseconds(40);
-            mstate.cstate = sresponse;
-        case sresponse:
             pinMode(PIN_DATA, INPUT);
             tcounter = 0;
             while(!digitalRead(PIN_DATA))
@@ -63,6 +56,7 @@ bool tempSens::transState(cstateconf& cstate)
             return true;
         case sprepare:
             tcounter=0;
+            mstate.start = mstate.myclock.now();
             while(digitalRead(PIN_DATA))
             {
                 tcounter++;
@@ -83,6 +77,7 @@ bool tempSens::transState(cstateconf& cstate)
         case spre:
             tcounter = 0;
             mstate.bcounter++;
+
             while(!digitalRead(PIN_DATA))
             {
                 tcounter++;
@@ -92,39 +87,23 @@ bool tempSens::transState(cstateconf& cstate)
                 }
                 delayMicroseconds(1);
             }
-            if(tcounter > 10)
-            {
-                return true;
-            }else
-            {
-                return false;
-            }
-
-
-        case ssignal:
-            tcounter = 0;
+            
 
             while(digitalRead(PIN_DATA)){
-                tcounter++;
-                if(tcounter==81){
-                    return false;
-                }
-                delayMicroseconds(1);
             }
-            if(tcounter < 9)
-            {
-                return false;
-            }
+            
+
+
             if( mstate.bcounter == 40){
                 mstate.cstate = stest;
                 return true;
-            }else
-            {
-                mstate.cstate = spre;
             }
+
             mstate.values[mstate.bcounter/8] |=(tcounter>25);
             mstate.values[mstate.bcounter/8] <<= 1;
-            
+
+            /*printf("%d\n", mstate.values[mstate.bcounter/8]);*/
+
             return true;
 
         case stest:
@@ -141,12 +120,6 @@ bool tempSens::transState(cstateconf& cstate)
             return false;
     }
 };
-
-int tempSens::getUpdatetime(){
-    std::chrono::milliseconds temp;
-    setStamp(temp);
-    return (temp - mstate.stamp).count();
-}
 void tempSens::callSens(){
     mstate.cstate=swake;
     while(transState(mstate))

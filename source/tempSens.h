@@ -11,18 +11,20 @@ public:
     void  callSens();
 
 private:
-    enum state{swake, swait, sresponse, sprepare, spre, ssignal, stest, sfin};
+    enum state{swake, sprepare, spre, stest, sfin};
     struct cstateconf {
         state cstate;
         uint8_t values[5];
         uint8_t bcounter;
         int test;
         bool validSig;
-        std::chrono::milliseconds stamp;
+        std::chrono::high_resolution_clock::time_point start, end;
+        std::chrono::high_resolution_clock myclock;
     };
+
+    
     
     int getUpdatetime();
-    void setStamp(std::chrono::milliseconds& ms);
     bool  transState(cstateconf& state);
 
     cstateconf mstate;

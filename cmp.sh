@@ -1,2 +1,3 @@
 cmake -H. -Bbuild
-cmake --build build -- -j3
+bear cmake --build build -- -j3
+cp ./build/compile_commands.json ./compile_commands.json
