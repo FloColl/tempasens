@@ -20,6 +20,8 @@ private:
         bool validSig;
         std::chrono::high_resolution_clock::time_point start, end;
         std::chrono::high_resolution_clock myclock;
+        std::chrono::duration<int> sigcounter;
+
     };
 
     

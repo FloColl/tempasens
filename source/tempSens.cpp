@@ -56,7 +56,6 @@ bool tempSens::transState(cstateconf& cstate)
             return true;
         case sprepare:
             tcounter=0;
-            mstate.start = mstate.myclock.now();
             while(digitalRead(PIN_DATA))
             {
                 tcounter++;
@@ -88,21 +87,23 @@ bool tempSens::transState(cstateconf& cstate)
                 delayMicroseconds(1);
             }
             
+            mstate.start = mstate.myclock.now();
 
             while(digitalRead(PIN_DATA)){
             }
             
+            mstate.end = mstate.myclock.now();
 
+            mstate.sigcounter = std::chrono::duration_cast<std::chrono::duration<int>> (mstate.end - mstate.start);
 
             if( mstate.bcounter == 40){
                 mstate.cstate = stest;
                 return true;
             }
-
+            tcounter = mstate.sigcounter.count();
             mstate.values[mstate.bcounter/8] |=(tcounter>25);
             mstate.values[mstate.bcounter/8] <<= 1;
 
-            /*printf("%d\n", mstate.values[mstate.bcounter/8]);*/
 
             return true;
 
