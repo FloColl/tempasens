@@ -4,6 +4,10 @@
 #include <chrono>
 
 class tempSens{
+    using clock = std::chrono::high_resolution_clock;
+    using TimePoint = std::chrono::time_point<clock>;
+    using mics = std::chrono::microseconds;
+
 public:
     tempSens();
     void setClock(int mili);
@@ -18,10 +22,9 @@ private:
         uint8_t bcounter;
         int test;
         bool validSig;
-        std::chrono::high_resolution_clock::time_point start, end;
-        std::chrono::high_resolution_clock myclock;
-        std::chrono::duration<int> sigcounter;
-
+        TimePoint start, end;
+        clock myclock; 
+        long sigcounter;
     };
 
     

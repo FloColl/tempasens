@@ -1,0 +1,4 @@
+build/
+bin/
+source/
+compile_commands.json

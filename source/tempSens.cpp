@@ -17,11 +17,7 @@ void tempSens::setClock(int x)
 {
     tempSens::sensClock = x;
 };
-/*
-void tempSens::setStamp(cstateconf& cstate){
-    cstate.stamp = std::chrono::high_resolution_clock::now();    
-};
-*/
+
 bool tempSens::transState(cstateconf& cstate)
 {
     int tcounter=0;
@@ -94,14 +90,14 @@ bool tempSens::transState(cstateconf& cstate)
             
             mstate.end = mstate.myclock.now();
 
-            mstate.sigcounter = std::chrono::duration_cast<std::chrono::duration<int>> (mstate.end - mstate.start);
+            mstate.sigcounter  = std::chrono::duration_cast<mics>(mstate.end.time_since_epoch() - mstate.start.time_since_epoch()).count();
 
             if( mstate.bcounter == 40){
                 mstate.cstate = stest;
                 return true;
             }
-            tcounter = mstate.sigcounter.count();
-            mstate.values[mstate.bcounter/8] |=(tcounter>25);
+            printf("%ld\n", mstate.sigcounter);
+            mstate.values[mstate.bcounter/8] |=(mstate.sigcounter>25);
             mstate.values[mstate.bcounter/8] <<= 1;
 
 

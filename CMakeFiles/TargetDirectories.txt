@@ -1,2 +1,0 @@
-/home/flo/projects/tempSens/CMakeFiles/rebuild_cache.dir
-/home/flo/projects/tempSens/CMakeFiles/edit_cache.dir
