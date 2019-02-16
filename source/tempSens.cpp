@@ -97,13 +97,12 @@ bool tempSens::transState(cstateconf& cstate)
 
             mstate.sigcounter  = std::chrono::duration_cast<mics>(mstate.end.time_since_epoch() - mstate.start.time_since_epoch()).count();
 
-            if( mstate.bcounter == 40){
-                mstate.cstate = stest;
-                return true;
-            }
             mstate.values[mstate.bcounter/8] |=(mstate.sigcounter>25);
             mstate.values[mstate.bcounter/8] <<= 1;
 
+            if( mstate.bcounter == 40){
+                mstate.cstate = stest;
+            }
 
             return true;
 

@@ -1,4 +1,5 @@
 build/
+gitty.sh
 bin/
 source/*.swp
 compile_commands.json
