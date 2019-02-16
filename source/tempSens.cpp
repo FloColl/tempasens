@@ -13,6 +13,10 @@ int tempSens::testemp()
     return mstate.values[0];
 };
 
+bool tempSens::valid(){
+    return mstate.validSig;
+}
+
 void tempSens::setClock(int x)
 {
     tempSens::sensClock = x;

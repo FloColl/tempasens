@@ -10,6 +10,7 @@ class tempSens{
 
 public:
     tempSens();
+    bool valid();
     void setClock(int mili);
     int testemp();
     void  callSens();
