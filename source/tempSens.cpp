@@ -24,6 +24,7 @@ bool tempSens::transState(cstateconf& cstate)
     switch(mstate.cstate)
     {
         case swake:
+
             cstate.validSig= false;
             mstate.test = 0;
             mstate.bcounter = 0;
@@ -96,7 +97,6 @@ bool tempSens::transState(cstateconf& cstate)
                 mstate.cstate = stest;
                 return true;
             }
-            printf("%ld\n", mstate.sigcounter);
             mstate.values[mstate.bcounter/8] |=(mstate.sigcounter>25);
             mstate.values[mstate.bcounter/8] <<= 1;
 
