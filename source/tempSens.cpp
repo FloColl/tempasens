@@ -76,7 +76,6 @@ bool tempSens::transState(cstateconf& cstate)
             }
         case spre:
             tcounter = 0;
-            mstate.bcounter++;
 
             while(!digitalRead(PIN_DATA))
             {
@@ -97,8 +96,10 @@ bool tempSens::transState(cstateconf& cstate)
 
             mstate.sigcounter  = std::chrono::duration_cast<mics>(mstate.end.time_since_epoch() - mstate.start.time_since_epoch()).count();
 
-            mstate.values[mstate.bcounter/8] |=(mstate.sigcounter>25);
-            mstate.values[mstate.bcounter/8] <<= 1;
+            mstate.values[(mstate.bcounter)/8] |=(mstate.sigcounter>25);
+            mstate.values[(mstate.bcounter)/8] <<= 1;
+
+            mstate.bcounter++;
 
             if( mstate.bcounter == 40){
                 mstate.cstate = stest;
